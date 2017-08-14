@@ -5,13 +5,14 @@
     <string name="name_hint">Es. Golf serie 7</string>
     <string name="save">Conferma</string>
     <string name="cancel">Annulla</string>
+    <string name="insert_error">Inserisci un veicolo</string>
+<!--    <string name=""></string>
     <string name=""></string>
     <string name=""></string>
     <string name=""></string>
     <string name=""></string>
     <string name=""></string>
     <string name=""></string>
-    <string name=""></string>
-    <string name=""></string>
+    <string name=""></string>-->
 
 </resources>
