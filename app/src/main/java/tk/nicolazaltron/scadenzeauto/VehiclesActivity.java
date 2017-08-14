@@ -19,7 +19,7 @@ public class VehiclesActivity extends AppCompatActivity {
 
     private ListView vehicleListView;
     private ArrayList<Vehicle> vehicleList;
-    private ArrayAdapter<Vehicle> vehicleAdapter;
+    private VehicleAdapter vehicleAdapter;
 
     public VehiclesActivity() {
     }
@@ -34,7 +34,7 @@ public class VehiclesActivity extends AppCompatActivity {
         vehicleListView = (ListView) findViewById(R.id.vehiclesListView);
         vehicleList = new ArrayList<>();
 
-        vehicleAdapter=new ArrayAdapter<Vehicle>(this, R.layout.vehicle_row,vehicleList);
+        vehicleAdapter=new VehicleAdapter(this, R.layout.vehicle_row,vehicleList);
         vehicleListView.setAdapter(vehicleAdapter);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -72,6 +72,7 @@ public class VehiclesActivity extends AppCompatActivity {
         FragmentManager fm = getSupportFragmentManager();
         AddVehicleDialog addListItemDialog = new AddVehicleDialog();
         addListItemDialog.show(fm, "");
+        vehicleAdapter.notifyDataSetChanged();
     }
 
 }
