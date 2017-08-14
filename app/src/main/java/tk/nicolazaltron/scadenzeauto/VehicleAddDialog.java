@@ -18,7 +18,7 @@ import android.widget.Toast;
  * Created by luisazurlo on 15/08/2017.
  */
 
-public class AddVehicleDialog extends DialogFragment implements TextView.OnEditorActionListener{
+public class VehicleAddDialog extends DialogFragment implements TextView.OnEditorActionListener{
 
     public interface AddItemDialogListener {
         void onFinishAddDialog(String inputText);
@@ -30,7 +30,7 @@ public class AddVehicleDialog extends DialogFragment implements TextView.OnEdito
     private Button saveButton;
     private Button cancelButton;
 
-    public AddVehicleDialog() {
+    public VehicleAddDialog() {
         // Empty constructor required for DialogFragment
     }
 
