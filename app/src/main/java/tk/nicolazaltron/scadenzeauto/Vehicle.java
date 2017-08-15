@@ -1,5 +1,6 @@
 package tk.nicolazaltron.scadenzeauto;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -11,18 +12,21 @@ public class Vehicle {
     private Date revisione;
     private Date bollo;
     private Date assicurazione;
+    private ArrayList<Scadenza> scadenze;
 
-    public Vehicle(String name, Date revisione, Date bollo, Date assicurazione) {
+    public Vehicle(String name, Date revisione, Date bollo, Date assicurazione, ArrayList scadenze) {
         this.name = name;
         this.revisione = revisione;
         this.bollo = bollo;
         this.assicurazione = assicurazione;
+        this.scadenze = scadenze;
     }
     public Vehicle(String name){
         this.name = name;
         this.revisione = null;
         this.bollo = null;
         this.assicurazione = null;
+        this.scadenze = null;
     }
 
     public void setName(String name) {
@@ -41,6 +45,10 @@ public class Vehicle {
         this.assicurazione = assicurazione;
     }
 
+    public void setScadenza(ArrayList<Scadenza> scadenze) {
+        this.scadenze = scadenze;
+    }
+
     public String getName() {
         return name;
     }
@@ -55,6 +63,10 @@ public class Vehicle {
 
     public Date getAssicurazione() {
         return assicurazione;
+    }
+
+    public ArrayList getScadenza() {
+        return scadenze;
     }
 
     @Override

@@ -1,5 +1,7 @@
 package tk.nicolazaltron.scadenzeauto;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentManager;
@@ -25,6 +27,7 @@ public class VehiclesActivity extends AppCompatActivity {
     private static VehicleAdapter vehicleAdapter;
     public static int currentEditPosition = 0;
     public static String currentEditName = "";
+    private Activity activity;
 
     public VehiclesActivity() {
     }
@@ -49,6 +52,15 @@ public class VehiclesActivity extends AppCompatActivity {
                 currentEditPosition = pos;
                 currentEditName = vehicleList.get(pos).getName();
                 return true;
+            }
+        });
+
+        vehicleListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> arg0, View arg1,
+                                           int pos, long id) {
+                Intent showScadenzaIntent = new Intent(activity, ShowScadenze.class);
+                activity.startActivity(showScadenzaIntent);
             }
         });
 

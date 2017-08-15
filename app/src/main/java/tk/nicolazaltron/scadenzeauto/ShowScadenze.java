@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -46,6 +47,19 @@ public class ShowScadenze extends AppCompatActivity {
                 showAddDialog();
             }
         });
+
+        vehicleAdapter = new VehicleAdapter(this, R.layout.vehicle_row,vehicleList);
+        vehicleListView.setAdapter(vehicleAdapter);
+/*        vehicleListView.setOnItemLongClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> arg0, View arg1,
+                                           int pos, long id) {
+                showEditDialog();
+                currentEditPosition = pos;
+                currentEditName = vehicleList.get(pos).getName();
+            }
+        });*/
+
     }
 
     @Override
