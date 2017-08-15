@@ -12,6 +12,13 @@ public class Vehicle {
     private Date bollo;
     private Date assicurazione;
 
+    public Vehicle(String name, Date revisione, Date bollo, Date assicurazione) {
+        this.name = name;
+        this.revisione = revisione;
+        this.bollo = bollo;
+        this.assicurazione = assicurazione;
+    }
+
     public void setName(String name) {
         this.name = name;
     }

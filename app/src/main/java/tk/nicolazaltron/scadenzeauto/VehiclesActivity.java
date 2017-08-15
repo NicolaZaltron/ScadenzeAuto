@@ -12,6 +12,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.Date;
+
+import static java.lang.System.currentTimeMillis;
 
 public class VehiclesActivity extends AppCompatActivity {
 
@@ -32,7 +35,7 @@ public class VehiclesActivity extends AppCompatActivity {
         vehicleListView = (ListView) findViewById(R.id.vehiclesListView);
         vehicleList = new ArrayList<>();
 
-        vehicleAdapter=new VehicleAdapter(this, R.layout.vehicle_row,vehicleList);
+        vehicleAdapter = new VehicleAdapter(this, R.layout.vehicle_row,vehicleList);
         vehicleListView.setAdapter(vehicleAdapter);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -60,7 +63,10 @@ public class VehiclesActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            return true;
+            showAddDialog();
+        }
+        else if (id == R.id.action_add) {
+            showAddDialog();
         }
 
         return super.onOptionsItemSelected(item);
@@ -70,6 +76,8 @@ public class VehiclesActivity extends AppCompatActivity {
         FragmentManager fm = getSupportFragmentManager();
         VehicleAddDialog addListItemDialog = new VehicleAddDialog();
         addListItemDialog.show(fm, "");
+        Vehicle vehicle = new Vehicle("vehicle", new Date(currentTimeMillis()), new Date(currentTimeMillis()), new Date(currentTimeMillis()));
+        vehicleList.add(vehicle);
         vehicleAdapter.notifyDataSetChanged();
     }
 
