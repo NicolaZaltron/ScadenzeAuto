@@ -34,7 +34,7 @@ public class VehicleEditDialog extends DialogFragment implements TextView.OnEdit
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.add_vehicle_fragment, container);
+        View view = inflater.inflate(R.layout.edit_vehicle_fragment, container);
         vehicleNameEditText  = (EditText) view.findViewById(R.id.vehicle_name);
 
         // Show soft keyboard automatically
