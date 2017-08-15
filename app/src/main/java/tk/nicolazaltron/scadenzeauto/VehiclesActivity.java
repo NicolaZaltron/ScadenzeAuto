@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -22,7 +23,7 @@ public class VehiclesActivity extends AppCompatActivity {
     private ListView vehicleListView;
     private static ArrayList<Vehicle> vehicleList;
     private static VehicleAdapter vehicleAdapter;
-    private static int currentEditPosition = 0;
+    public static int currentEditPosition = 0;
     public static String currentEditName = "";
 
     public VehiclesActivity() {
@@ -38,7 +39,7 @@ public class VehiclesActivity extends AppCompatActivity {
         vehicleListView = (ListView) findViewById(R.id.vehiclesListView);
         vehicleList = new ArrayList<>();
 
-        vehicleAdapter = new VehicleAdapter(this, R.layout.vehicle_row,vehicleList);
+        vehicleAdapter = new VehicleAdapter(this, R.layout.vehicle_row,vehicleList, getSupportFragmentManager());
         vehicleListView.setAdapter(vehicleAdapter);
         vehicleListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
@@ -58,6 +59,7 @@ public class VehiclesActivity extends AppCompatActivity {
                 showAddDialog();
             }
         });
+
     }
 
     @Override
@@ -98,7 +100,7 @@ public class VehiclesActivity extends AppCompatActivity {
         notifyChanges();
     }
 
-    private void showEditDialog(){
+    public void showEditDialog(){
         FragmentManager fm = getSupportFragmentManager();
         VehicleEditDialog addListItemDialog = new VehicleEditDialog();
         addListItemDialog.show(fm, "");

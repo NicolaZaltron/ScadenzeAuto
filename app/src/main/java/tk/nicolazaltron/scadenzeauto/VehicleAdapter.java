@@ -31,6 +31,17 @@ public class VehicleAdapter extends ArrayAdapter {
         TextView textView_vehicleName = (TextView) convertView.findViewById(R.id.textView_vehicleName);
         // Populate the data into the template view using the data object
         textView_vehicleName.setText(vehicle.getName());
+
+        ImageButton buttonDelete = (ImageButton) convertView.findViewById(R.id.button_vehicleDelete);
+        ImageButton buttonEdit = (ImageButton) convertView.findViewById(R.id.button_vehicleEdit);
+
+        buttonEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                VehiclesActivity.currentEditName = vehicle.getName();
+                VehiclesActivity.currentEditPosition = position;
+            }
+        });
         // Return the completed view to render on screen
         return convertView;
     }
