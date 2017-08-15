@@ -8,5 +8,8 @@
         android:id="@+id/textView_vehicleName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:padding="10dp"
+        android:text="TextView"
+        android:textAllCaps="false"
+        android:textSize="18sp" />
 </LinearLayout>
