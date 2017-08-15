@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -20,8 +21,9 @@ public class VehiclesActivity extends AppCompatActivity {
 
     private ListView vehicleListView;
     private static ArrayList<Vehicle> vehicleList;
-    private VehicleAdapter vehicleAdapter;
+    private static VehicleAdapter vehicleAdapter;
     private static int currentEditPosition = 0;
+    public static String currentEditName = "";
 
     public VehiclesActivity() {
     }
@@ -38,6 +40,16 @@ public class VehiclesActivity extends AppCompatActivity {
 
         vehicleAdapter = new VehicleAdapter(this, R.layout.vehicle_row,vehicleList);
         vehicleListView.setAdapter(vehicleAdapter);
+        vehicleListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
+                                           int pos, long id) {
+                showEditDialog();
+                currentEditPosition = pos;
+                currentEditName = vehicleList.get(pos).getName();
+                return true;
+            }
+        });
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -73,18 +85,24 @@ public class VehiclesActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        notifyChanges();
+    }
+
     private void showAddDialog(){
         FragmentManager fm = getSupportFragmentManager();
         VehicleAddDialog addListItemDialog = new VehicleAddDialog();
         addListItemDialog.show(fm, "");
-        vehicleAdapter.notifyDataSetChanged();
+        notifyChanges();
     }
 
-    private void editAddDialog(){
+    private void showEditDialog(){
         FragmentManager fm = getSupportFragmentManager();
         VehicleEditDialog addListItemDialog = new VehicleEditDialog();
         addListItemDialog.show(fm, "");
-        vehicleAdapter.notifyDataSetChanged();
+            notifyChanges();
     }
 
     public static void addVehicle(String name){
@@ -93,5 +111,9 @@ public class VehiclesActivity extends AppCompatActivity {
 
     public static void editVehicle(String name){
         vehicleList.get(currentEditPosition).setName(name);
+    }
+
+    public static void notifyChanges(){
+        vehicleAdapter.notifyDataSetChanged();
     }
 }

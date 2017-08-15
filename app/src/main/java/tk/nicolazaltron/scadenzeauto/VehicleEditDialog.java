@@ -38,6 +38,7 @@ public class VehicleEditDialog extends DialogFragment implements TextView.OnEdit
         vehicleNameEditText  = (EditText) view.findViewById(R.id.vehicle_name);
 
         // Show soft keyboard automatically
+        vehicleNameEditText.setText(VehiclesActivity.currentEditName);
         vehicleNameEditText.requestFocus();
         getDialog().getWindow().setSoftInputMode(
                 WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
@@ -54,6 +55,7 @@ public class VehicleEditDialog extends DialogFragment implements TextView.OnEdit
                     Toast.makeText(getActivity(), R.string.insert_error , Toast.LENGTH_SHORT).show();
                 } else {
                     VehiclesActivity.editVehicle(temp_vehicle);
+                    VehiclesActivity.notifyChanges();
                     getDialog().dismiss();
                 }
             }
