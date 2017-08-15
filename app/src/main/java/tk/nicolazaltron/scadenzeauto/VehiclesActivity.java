@@ -19,7 +19,7 @@ import static java.lang.System.currentTimeMillis;
 public class VehiclesActivity extends AppCompatActivity {
 
     private ListView vehicleListView;
-    private ArrayList<Vehicle> vehicleList;
+    private static ArrayList<Vehicle> vehicleList;
     private VehicleAdapter vehicleAdapter;
 
     public VehiclesActivity() {
@@ -81,4 +81,7 @@ public class VehiclesActivity extends AppCompatActivity {
         vehicleAdapter.notifyDataSetChanged();
     }
 
+    public static void addVehicle(String name){
+        vehicleList.add(new Vehicle(name));
+    }
 }

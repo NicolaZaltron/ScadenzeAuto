@@ -18,6 +18,12 @@ public class Vehicle {
         this.bollo = bollo;
         this.assicurazione = assicurazione;
     }
+    public Vehicle(String name){
+        this.name = name;
+        this.revisione = null;
+        this.bollo = null;
+        this.assicurazione = null;
+    }
 
     public void setName(String name) {
         this.name = name;
