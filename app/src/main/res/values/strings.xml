@@ -2,7 +2,8 @@
     <string name="app_name">ScadenzeAuto</string>
     <string name="action_settings">Settings</string>
     <string name="action_add">Aggiungi un nuovo veicolo</string>
-    <string name="add_vehicle_details">Aggiungi dettagli veicolo</string>
+    <string name="add_vehicle_details">Aggiungi nuovo veicolo</string>
+    <string name="edit_vehicle_details">Modifica nome veicolo</string>
     <string name="name_hint">Es. Golf serie 7</string>
     <string name="save">Conferma</string>
     <string name="cancel">Annulla</string>

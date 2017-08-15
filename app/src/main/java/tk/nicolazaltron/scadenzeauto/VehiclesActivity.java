@@ -21,6 +21,7 @@ public class VehiclesActivity extends AppCompatActivity {
     private ListView vehicleListView;
     private static ArrayList<Vehicle> vehicleList;
     private VehicleAdapter vehicleAdapter;
+    private static int currentEditPosition = 0;
 
     public VehiclesActivity() {
     }
@@ -76,12 +77,21 @@ public class VehiclesActivity extends AppCompatActivity {
         FragmentManager fm = getSupportFragmentManager();
         VehicleAddDialog addListItemDialog = new VehicleAddDialog();
         addListItemDialog.show(fm, "");
-        Vehicle vehicle = new Vehicle("vehicle", new Date(currentTimeMillis()), new Date(currentTimeMillis()), new Date(currentTimeMillis()));
-        vehicleList.add(vehicle);
+        vehicleAdapter.notifyDataSetChanged();
+    }
+
+    private void editAddDialog(){
+        FragmentManager fm = getSupportFragmentManager();
+        VehicleEditDialog addListItemDialog = new VehicleEditDialog();
+        addListItemDialog.show(fm, "");
         vehicleAdapter.notifyDataSetChanged();
     }
 
     public static void addVehicle(String name){
         vehicleList.add(new Vehicle(name));
+    }
+
+    public static void editVehicle(String name){
+        vehicleList.get(currentEditPosition).setName(name);
     }
 }
