@@ -15,6 +15,8 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
+import DB.JSONManager;
+import DB.JSON_DBPopulator;
 import Models.Vehicle;
 
 public class VehiclesActivity extends AppCompatActivity {
@@ -43,6 +45,8 @@ public class VehiclesActivity extends AppCompatActivity {
         fm = getSupportFragmentManager();
         vehicleListView = (ListView) findViewById(R.id.vehiclesListView);
         vehicleList = new ArrayList<>();
+
+        //vehicleList = JSON_DBPopulator.getVehicles();
 
         vehicleAdapter = new VehicleAdapter(this, R.layout.vehicle_row,vehicleList);
         vehicleListView.setAdapter(vehicleAdapter);

@@ -38,7 +38,7 @@ public class VehicleAddDialog extends DialogFragment implements TextView.OnEdito
                              Bundle savedInstanceState) {
         View view               = inflater.inflate(R.layout.add_vehicle_fragment, container);
         vehicleNameEditText     = (EditText) view.findViewById(R.id.vehicle_name);
-        vehicleSpinner          = (Spinner) view.findViewById(R.id.spinner);
+        //vehicleSpinner          = (Spinner) view.findViewById(R.id.spinner);
         saveButton              = (Button) view.findViewById(R.id.save);
         cancelButton            = (Button) view.findViewById(R.id.cancel);
 
