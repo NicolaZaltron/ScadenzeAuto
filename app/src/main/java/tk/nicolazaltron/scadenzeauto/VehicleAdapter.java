@@ -1,8 +1,10 @@
 package tk.nicolazaltron.scadenzeauto;
 
 import android.content.Context;
+import android.os.Build;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +24,7 @@ public class VehicleAdapter extends ArrayAdapter {
     public VehicleAdapter(@NonNull Context context, @LayoutRes int resource, List vehicles) {
         super(context, resource, vehicles);
     }
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         // Get the data item for this position
@@ -70,6 +73,19 @@ public class VehicleAdapter extends ArrayAdapter {
                                                   }
                                               }
         );
+
+        switch (vehicle.getIcon()){
+            case car: buttonVehicleImage.setImageResource(R.drawable.car);break;
+            case bike: buttonVehicleImage.setImageResource(R.drawable.bike);break;
+            case motorbike: buttonVehicleImage.setImageResource(R.drawable.motorbike);break;
+            case van: buttonVehicleImage.setImageResource(R.drawable.van);break;
+            case pickup: buttonVehicleImage.setImageResource(R.drawable.pickup);break;
+            case ape: buttonVehicleImage.setImageResource(R.drawable.ape);break;
+            case troc: buttonVehicleImage.setImageResource(R.drawable.troc);break;
+            case boat: buttonVehicleImage.setImageResource(R.drawable.boat);break;
+            default: buttonVehicleImage.setImageResource(R.drawable.car);break;
+        }
+
         
         // Return the completed view to render on screen
         return convertView;
