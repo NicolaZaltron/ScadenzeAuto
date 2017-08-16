@@ -21,7 +21,7 @@ import Models.Vehicle;
 
 public class VehiclesActivity extends AppCompatActivity {
 
-    private Activity activity;
+    private static Activity activity;
     private ListView vehicleListView;
     private static ArrayList<Vehicle> vehicleList;
     private static VehicleAdapter vehicleAdapter;
@@ -53,24 +53,15 @@ public class VehiclesActivity extends AppCompatActivity {
         vehicleAdapter = new VehicleAdapter(this, R.layout.vehicle_row,vehicleList);
         vehicleListView.setAdapter(vehicleAdapter);
         notifyChanges();
+
         vehicleListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
                                            int pos, long id) {
-
                 currentEditPosition = pos;
                 currentEditName = vehicleList.get(pos).getName();
                 showEditDialog();
                 return true;
-            }
-        });
-
-        vehicleListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> arg0, View arg1,
-                                           int pos, long id) {
-                Intent showScadenzaIntent = new Intent(activity, ShowScadenze.class);
-                activity.startActivity(showScadenzaIntent);
             }
         });
 
@@ -154,6 +145,10 @@ public class VehiclesActivity extends AppCompatActivity {
         notifyChanges();
     }
 
+    public static void openVehicle(int pos){
+        Intent showScadenzeIntent = new Intent(activity, VehiclesActivity.class);
+        activity.startActivity(showScadenzeIntent);
+    }
     public static void notifyChanges(){
         vehicleAdapter.notifyDataSetChanged();
     }

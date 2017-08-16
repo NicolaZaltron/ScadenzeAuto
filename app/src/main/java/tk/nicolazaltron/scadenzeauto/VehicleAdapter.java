@@ -37,6 +37,7 @@ public class VehicleAdapter extends ArrayAdapter {
 
         ImageButton buttonDelete = (ImageButton) convertView.findViewById(R.id.button_vehicleDelete);
         ImageButton buttonEdit = (ImageButton) convertView.findViewById(R.id.button_vehicleEdit);
+        ImageButton buttonVehicleImage = (ImageButton) convertView.findViewById(R.id.button_vehicleImage);
 
         buttonEdit.setOnClickListener(new View.OnClickListener() {
                                           @Override
@@ -52,6 +53,22 @@ public class VehicleAdapter extends ArrayAdapter {
                                               VehiclesActivity.deleteVehicle(position);
                                           }
                                       }
+        );
+
+        buttonVehicleImage.setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View v) {
+                                                VehiclesActivity.openVehicle(position);
+                                            }
+                                        }
+        );
+
+        textView_vehicleName.setOnClickListener(new View.OnClickListener() {
+                                                  @Override
+                                                  public void onClick(View v) {
+                                                      VehiclesActivity.openVehicle(position);
+                                                  }
+                                              }
         );
         
         // Return the completed view to render on screen

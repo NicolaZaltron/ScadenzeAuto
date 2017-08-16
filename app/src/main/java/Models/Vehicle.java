@@ -12,8 +12,14 @@ import Models.Scadenza;
 public class Vehicle {
     public enum Icon{
         car,
+        pickup,
+        van,
+        troc,
+        ape,
+        bike,
         scooter,
-        moto
+        motorbike,
+        boat
     }
     private String name;
     private Icon icon;

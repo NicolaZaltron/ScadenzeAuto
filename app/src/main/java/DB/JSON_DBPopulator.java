@@ -29,6 +29,7 @@ public class JSON_DBPopulator {
 
     protected Vehicle currentVehicle;
     protected Scadenza currentScadenza;
+    protected ArrayList<Scadenza> currentScadenzeArray;
 
     SimpleDateFormat dateFormat = new SimpleDateFormat("DD/MM/YYYY");
 
@@ -67,10 +68,20 @@ public class JSON_DBPopulator {
             currentVehicle = null;
             currentVehicle = new Vehicle();
             currentVehicle.setName(vehiclesArrayObj.getJSONObject(i).getString(activity.getResources().getString(R.string.jsonParsing_name)));
-            System.out.println(currentVehicle.getName());
-            //currentVehicle.setName(vehiclesArrayObj.getJSONObject(i).getString(activity.getResources().getString(R.string.jsonParsing_name))); //fare set icon image
-            currentVehicle.setIcon(Vehicle.Icon.car);
-            ArrayList<Scadenza> scadenze = new ArrayList<Scadenza>();
+
+            switch (vehiclesArrayObj.getJSONObject(i).getString(activity.getResources().getString(R.string.jsonParsing_icon))){
+                case "car": currentVehicle.setIcon(Vehicle.Icon.car);break;
+                case "bike": currentVehicle.setIcon(Vehicle.Icon.bike);break;
+                case "motorbike": currentVehicle.setIcon(Vehicle.Icon.motorbike);break;
+                case "van": currentVehicle.setIcon(Vehicle.Icon.van);break;
+                case "pickup": currentVehicle.setIcon(Vehicle.Icon.pickup);break;
+                case "ape": currentVehicle.setIcon(Vehicle.Icon.ape);break;
+                case "troc": currentVehicle.setIcon(Vehicle.Icon.troc);break;
+                case "boat": currentVehicle.setIcon(Vehicle.Icon.boat);break;
+                default: currentVehicle.setIcon(Vehicle.Icon.car);break;
+            }
+
+            currentScadenzeArray = new ArrayList<Scadenza>();
             JSONArray scadenzeArrayObj = vehiclesArrayObj.getJSONObject(i).getJSONArray(activity.getResources().getString(R.string.jsonParsing_scadenze));
             for (int j = 0; j < scadenzeArrayObj.length(); j++) {
                 currentScadenza = new Scadenza();
@@ -80,9 +91,9 @@ public class JSON_DBPopulator {
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
-                scadenze.add(currentScadenza);
+                currentScadenzeArray.add(currentScadenza);
             }
-            currentVehicle.setScadenze(scadenze);
+            currentVehicle.setScadenze(currentScadenzeArray);
             vehiclesArray.add(currentVehicle);
         }
     }
