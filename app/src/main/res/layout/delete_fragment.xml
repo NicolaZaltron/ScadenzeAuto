@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:paddingTop="8dp"
+    android:paddingRight="8dp"
+    android:paddingLeft="8dp">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/edit_name"
+        android:layout_width="300dp" android:layout_height="130dp"
+        android:layout_gravity="right|bottom" android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/lbl_your_name" android:text="@string/confirm"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            style="@style/TextAppearance.AppCompat.Light.Widget.PopupMenu.Large"
+            android:textColor="#000000"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/relativeLayout"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cancel"
+                android:id="@+id/no"
+                android:layout_gravity="center_horizontal"
+                android:background="@android:color/transparent"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_alignParentTop="true"
+                android:layout_toStartOf="@+id/yes" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/save"
+                android:id="@+id/yes"
+                android:layout_gravity="right"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:background="@android:color/transparent"
+                style="?android:attr/borderlessButtonStyle"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</FrameLayout>

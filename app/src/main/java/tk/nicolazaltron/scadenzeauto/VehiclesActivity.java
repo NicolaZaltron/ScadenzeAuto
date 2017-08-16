@@ -26,6 +26,7 @@ public class VehiclesActivity extends AppCompatActivity {
     private static ArrayList<Vehicle> vehicleList;
     private static VehicleAdapter vehicleAdapter;
     public static int currentEditPosition = 0;
+    public static int currentDeletePosition = 0;
     public static String currentEditName = "";
     private Activity activity;
 
@@ -132,6 +133,16 @@ public class VehiclesActivity extends AppCompatActivity {
     public static void editVehicle(int position){
         VehicleEditDialog addListItemDialog = new VehicleEditDialog();
         addListItemDialog.show(fm, "");
+    }
+
+    public static void deleteVehicleDialog(int position){
+        currentDeletePosition = position;
+        DeleteDialog deleteItemDialog = new DeleteDialog();
+        deleteItemDialog.show(fm, "");
+    }
+
+    public static void deleteVehicle(){
+        vehicleList.remove(currentDeletePosition);
     }
 
     public static void notifyChanges(){

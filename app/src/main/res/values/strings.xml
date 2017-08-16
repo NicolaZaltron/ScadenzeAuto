@@ -8,8 +8,9 @@
     <string name="save">Conferma</string>
     <string name="cancel">Annulla</string>
     <string name="insert_error">Inserisci un veicolo</string>
+    <string name="confirm">Sei sicuro di voler eliminare l\'elemento?</string>
 <!--    <string name=""></string>
-    <string name=""></string>
+
     <string name=""></string>
     <string name=""></string>
     <string name=""></string>
