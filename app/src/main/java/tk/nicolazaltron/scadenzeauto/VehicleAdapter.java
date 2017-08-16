@@ -48,7 +48,7 @@ public class VehicleAdapter extends ArrayAdapter {
         buttonDelete.setOnClickListener(new View.OnClickListener() {
                                           @Override
                                           public void onClick(View v) {
-                                              VehiclesActivity.deleteVehicleDialog(position);
+                                              VehiclesActivity.deleteVehicle(position);
                                           }
                                       }
         );

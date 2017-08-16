@@ -121,12 +121,13 @@ public class VehiclesActivity extends AppCompatActivity {
         addListItemDialog.show(fm, "");
     }
 
-    public static void addVehicle(String name){
-        vehicleList.add(new Vehicle(name));
+    public static void showDeleteDialog(){
+        DeleteDialog deleteItemDialog = new DeleteDialog();
+        deleteItemDialog.show(fm, "");
     }
 
-    public static void editVehicleName(String name){
-        vehicleList.get(currentEditPosition).setName(name);
+    public static void addVehicle(String name){
+        vehicleList.add(new Vehicle(name));
     }
 
     public static void editVehicle(int pos){
@@ -135,14 +136,18 @@ public class VehiclesActivity extends AppCompatActivity {
         showEditDialog();
     }
 
-    public static void deleteVehicleDialog(int position){
-        currentDeletePosition = position;
-        DeleteDialog deleteItemDialog = new DeleteDialog();
-        deleteItemDialog.show(fm, "");
+    public static void deleteVehicle(int pos){
+        currentDeletePosition = pos;
+        showDeleteDialog();
     }
 
-    public static void deleteVehicle(){
+    public static void editVehicleName_confirmed(String name){
+        vehicleList.get(currentEditPosition).setName(name);
+    }
+
+    public static void deleteVehicle_confirmed(){
         vehicleList.remove(currentDeletePosition);
+        notifyChanges();
     }
 
     public static void notifyChanges(){

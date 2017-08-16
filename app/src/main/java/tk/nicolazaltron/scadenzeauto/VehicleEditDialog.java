@@ -54,7 +54,7 @@ public class VehicleEditDialog extends DialogFragment implements TextView.OnEdit
                 if(temp_vehicle.equals("")){
                     Toast.makeText(getActivity(), R.string.insert_error , Toast.LENGTH_SHORT).show();
                 } else {
-                    VehiclesActivity.editVehicleName(temp_vehicle);
+                    VehiclesActivity.editVehicleName_confirmed(temp_vehicle);
                     VehiclesActivity.notifyChanges();
                     getDialog().dismiss();
                 }

@@ -31,7 +31,7 @@ public class DeleteDialog extends DialogFragment {
             @Override
             public void onClick(View view) {
                 //inserire codice per eliminare leemento
-                VehiclesActivity.deleteVehicle();
+                VehiclesActivity.deleteVehicle_confirmed();
                 getDialog().dismiss();
             }
         });
