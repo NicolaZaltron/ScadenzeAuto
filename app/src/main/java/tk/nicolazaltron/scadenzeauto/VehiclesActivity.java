@@ -29,6 +29,7 @@ public class VehiclesActivity extends AppCompatActivity {
     public static String currentEditName = "";
     private Activity activity;
 
+    private static FragmentManager fm;
     public VehiclesActivity() {
     }
 
@@ -39,10 +40,11 @@ public class VehiclesActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        fm = getSupportFragmentManager();
         vehicleListView = (ListView) findViewById(R.id.vehiclesListView);
         vehicleList = new ArrayList<>();
 
-        vehicleAdapter = new VehicleAdapter(this, R.layout.vehicle_row,vehicleList, getSupportFragmentManager());
+        vehicleAdapter = new VehicleAdapter(this, R.layout.vehicle_row,vehicleList);
         vehicleListView.setAdapter(vehicleAdapter);
         vehicleListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
@@ -125,6 +127,11 @@ public class VehiclesActivity extends AppCompatActivity {
 
     public static void editVehicle(String name){
         vehicleList.get(currentEditPosition).setName(name);
+    }
+
+    public static void editVehicle(int position){
+        VehicleEditDialog addListItemDialog = new VehicleEditDialog();
+        addListItemDialog.show(fm, "");
     }
 
     public static void notifyChanges(){

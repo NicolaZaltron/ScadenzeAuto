@@ -21,7 +21,7 @@ public class VehicleAdapter extends ArrayAdapter {
         super(context, resource, vehicles);
     }
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         // Get the data item for this position
         Vehicle vehicle = (Vehicle) getItem(position);
         // Check if an existing view is being reused, otherwise inflate the view
@@ -35,6 +35,14 @@ public class VehicleAdapter extends ArrayAdapter {
 
         ImageButton buttonDelete = (ImageButton) convertView.findViewById(R.id.button_vehicleDelete);
         ImageButton buttonEdit = (ImageButton) convertView.findViewById(R.id.button_vehicleEdit);
+
+        buttonEdit.setOnClickListener(new View.OnClickListener() {
+                                          @Override
+                                          public void onClick(View v) {
+                                                     VehiclesActivity.editVehicle(position);
+                                          }
+                                      }
+        );
         
         // Return the completed view to render on screen
         return convertView;
