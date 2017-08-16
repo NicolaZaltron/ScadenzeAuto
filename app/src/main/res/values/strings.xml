@@ -1,4 +1,21 @@
 <resources>
+
+    //------------------------------------------------------------------------------------------
+    //                                DB Populator
+    //------------------------------------------------------------------------------------------
+
+    <string name="jsonParsing_vehicle">vehicles</string>
+    <string name="jsonParsing_name">name</string>
+    <string name="jsonParsing_icon">icon</string>
+    <string name="jsonParsing_scadenze">scadenze</string>
+    <string name="jsonParsing_name_scadenza">name_scadenza</string>
+    <string name="jsonParsing_date">date</string>
+
+
+    //------------------------------------------------------------------------------------------
+    //                                App
+    //------------------------------------------------------------------------------------------
+
     <string name="app_name">ScadenzeAuto</string>
     <string name="action_settings">Settings</string>
     <string name="action_add">Aggiungi un nuovo veicolo</string>

@@ -1,0 +1,58 @@
+{
+  "vehicles": [
+    {
+      "name": "Golf serie 7",
+      "icon": "auto",
+      "scadenze": [
+            {
+              "name_scadenza": "Bollo",
+              "date": "20/04/2018"
+            },
+            {
+              "name_scadenza": "Assicurazione",
+              "date": "20/09/2017"
+            },
+            {
+              "name_scadenza": "Revisione",
+              "date": "13/12/2018"
+            }
+      ]
+    },
+    {
+      "name": "Audi R1 grigia",
+      "icon": "auto",
+      "scadenze": [
+        {
+          "name_scadenza": "Bollo",
+          "date": "20/04/2018"
+        },
+        {
+          "name_scadenza": "Assicurazione",
+          "date": "20/09/2019"
+        },
+        {
+          "name_scadenza": "Revisione",
+          "date": "13/12/2017"
+        }
+      ]
+    },
+    {
+      "name": "Audi R1 bianca",
+      "icon": "auto",
+      "scadenze": [
+        {
+          "name_scadenza": "Bollo",
+          "date": "20/04/2020"
+        },
+        {
+          "name_scadenza": "Assicurazione",
+          "date": "20/09/2019"
+        },
+        {
+          "name_scadenza": "Revisione",
+          "date": "13/09/2017"
+        }
+      ]
+    }
+  ]
+}

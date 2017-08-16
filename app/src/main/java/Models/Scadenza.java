@@ -1,4 +1,4 @@
-package tk.nicolazaltron.scadenzeauto;
+package Models;
 
 import java.util.Date;
 
@@ -25,7 +25,7 @@ public class Scadenza {
         this.kindOfScadenza = kindOfScadenza;
     }
 
-    public void dateScadenza(Date dateScadenza) {
+    public void setScadenza(Date dateScadenza) {
         this.dateScadenza = dateScadenza;
     }
 

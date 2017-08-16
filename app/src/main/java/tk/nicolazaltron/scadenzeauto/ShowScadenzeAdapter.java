@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import Models.Vehicle;
+
 /**
  * Created by luisazurlo on 15/08/2017.
  */

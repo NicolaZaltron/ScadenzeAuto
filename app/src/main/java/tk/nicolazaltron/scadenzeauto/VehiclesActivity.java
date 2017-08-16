@@ -11,14 +11,11 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ImageButton;
 import android.widget.ListView;
 
 import java.util.ArrayList;
-import java.util.Date;
 
-import static java.lang.System.currentTimeMillis;
+import Models.Vehicle;
 
 public class VehiclesActivity extends AppCompatActivity {
 

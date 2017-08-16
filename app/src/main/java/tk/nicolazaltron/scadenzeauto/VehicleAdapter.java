@@ -1,7 +1,6 @@
 package tk.nicolazaltron.scadenzeauto;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
@@ -12,6 +11,8 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.util.List;
+
+import Models.Vehicle;
 
 /**
  * Created by Nicola Zaltron on 8/15/2017.

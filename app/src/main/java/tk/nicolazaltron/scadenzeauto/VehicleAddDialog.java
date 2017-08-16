@@ -25,6 +25,7 @@ public class VehicleAddDialog extends DialogFragment implements TextView.OnEdito
     }
 
     private EditText vehicleNameEditText;
+    private Spinner vehicleSpinner;
     private Button saveButton;
     private Button cancelButton;
 
@@ -35,16 +36,18 @@ public class VehicleAddDialog extends DialogFragment implements TextView.OnEdito
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.add_vehicle_fragment, container);
-        vehicleNameEditText  = (EditText) view.findViewById(R.id.vehicle_name);
+        View view               = inflater.inflate(R.layout.add_vehicle_fragment, container);
+        vehicleNameEditText     = (EditText) view.findViewById(R.id.vehicle_name);
+        vehicleSpinner          = (Spinner) view.findViewById(R.id.spinner);
+        saveButton              = (Button) view.findViewById(R.id.save);
+        cancelButton            = (Button) view.findViewById(R.id.cancel);
 
         // Show soft keyboard automatically
         vehicleNameEditText.requestFocus();
         getDialog().getWindow().setSoftInputMode(
                 WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
 
-        saveButton      = (Button) view.findViewById(R.id.save);
-        cancelButton    = (Button) view.findViewById(R.id.cancel);
+
 
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,6 +79,7 @@ public class VehicleAddDialog extends DialogFragment implements TextView.OnEdito
             // Return input text to activity
             AddItemDialogListener activity = (AddItemDialogListener) getActivity();
             activity.onFinishAddDialog(vehicleNameEditText.getText().toString());
+            activity.onFinishAddDialog(vehicleSpinner.getSelectedItem().toString()); //settare immagine
             this.dismiss();
             return true;
         }
