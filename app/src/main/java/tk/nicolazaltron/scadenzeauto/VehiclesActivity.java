@@ -22,14 +22,16 @@ import static java.lang.System.currentTimeMillis;
 
 public class VehiclesActivity extends AppCompatActivity {
 
+    private Activity activity;
     private ListView vehicleListView;
     private static ArrayList<Vehicle> vehicleList;
     private static VehicleAdapter vehicleAdapter;
+
     public static int currentEditPosition = 0;
     public static String currentEditName = "";
-    private Activity activity;
 
     private static FragmentManager fm;
+
     public VehiclesActivity() {
     }
 
@@ -50,9 +52,10 @@ public class VehiclesActivity extends AppCompatActivity {
             @Override
             public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
                                            int pos, long id) {
-                showEditDialog();
+
                 currentEditPosition = pos;
                 currentEditName = vehicleList.get(pos).getName();
+                showEditDialog();
                 return true;
             }
         });
@@ -108,30 +111,27 @@ public class VehiclesActivity extends AppCompatActivity {
     }
 
     private void showAddDialog(){
-        FragmentManager fm = getSupportFragmentManager();
         VehicleAddDialog addListItemDialog = new VehicleAddDialog();
         addListItemDialog.show(fm, "");
-        notifyChanges();
     }
 
-    public void showEditDialog(){
-        FragmentManager fm = getSupportFragmentManager();
+    public static void showEditDialog(){
         VehicleEditDialog addListItemDialog = new VehicleEditDialog();
         addListItemDialog.show(fm, "");
-            notifyChanges();
     }
 
     public static void addVehicle(String name){
         vehicleList.add(new Vehicle(name));
     }
 
-    public static void editVehicle(String name){
+    public static void editVehicleName(String name){
         vehicleList.get(currentEditPosition).setName(name);
     }
 
-    public static void editVehicle(int position){
-        VehicleEditDialog addListItemDialog = new VehicleEditDialog();
-        addListItemDialog.show(fm, "");
+    public static void editVehicle(int pos){
+        currentEditPosition = pos;
+        currentEditName = vehicleList.get(pos).getName();
+        showEditDialog();
     }
 
     public static void notifyChanges(){
