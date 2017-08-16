@@ -46,10 +46,13 @@ public class VehiclesActivity extends AppCompatActivity {
         vehicleListView = (ListView) findViewById(R.id.vehiclesListView);
         vehicleList = new ArrayList<>();
 
-        //vehicleList = JSON_DBPopulator.getVehicles();
+        activity = this;
+        new JSON_DBPopulator(activity);
+        vehicleList = JSON_DBPopulator.getVehicles();
 
         vehicleAdapter = new VehicleAdapter(this, R.layout.vehicle_row,vehicleList);
         vehicleListView.setAdapter(vehicleAdapter);
+        notifyChanges();
         vehicleListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> arg0, View arg1,

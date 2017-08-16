@@ -30,7 +30,7 @@ public class JSON_DBPopulator {
     protected Vehicle currentVehicle;
     protected Scadenza currentScadenza;
 
-    SimpleDateFormat dateFormat = new SimpleDateFormat("DD-MM-YYYY");
+    SimpleDateFormat dateFormat = new SimpleDateFormat("DD/MM/YYYY");
 
     JSONManager reader;
 
@@ -38,7 +38,7 @@ public class JSON_DBPopulator {
     //------------------------------------------------------------------------------------------
     //                               READER + SWITCH FUNCTION
     //------------------------------------------------------------------------------------------
-    public JSON_DBPopulator(Activity activity, String jsonToProcess){
+    public JSON_DBPopulator(Activity activity){
         this.activity = activity;
 
         reader = new JSONManager(activity.getResources(), R.raw.vehicle_info);
@@ -67,15 +67,16 @@ public class JSON_DBPopulator {
             currentVehicle = null;
             currentVehicle = new Vehicle();
             currentVehicle.setName(vehiclesArrayObj.getJSONObject(i).getString(activity.getResources().getString(R.string.jsonParsing_name)));
+            System.out.println(currentVehicle.getName());
             //currentVehicle.setName(vehiclesArrayObj.getJSONObject(i).getString(activity.getResources().getString(R.string.jsonParsing_name))); //fare set icon image
             currentVehicle.setIcon(Vehicle.Icon.car);
             ArrayList<Scadenza> scadenze = new ArrayList<Scadenza>();
-            JSONArray scadenzeArrayObj = jsonObject.getJSONArray(activity.getResources().getString(R.string.jsonParsing_scadenze));
+            JSONArray scadenzeArrayObj = vehiclesArrayObj.getJSONObject(i).getJSONArray(activity.getResources().getString(R.string.jsonParsing_scadenze));
             for (int j = 0; j < scadenzeArrayObj.length(); j++) {
-                currentScadenza = null;
+                currentScadenza = new Scadenza();
                 currentScadenza.setName((String) scadenzeArrayObj.getJSONObject(i).get(activity.getResources().getString(R.string.jsonParsing_name_scadenza)));
                 try {
-                    currentScadenza.setScadenza(dateFormat.parse((String) scadenzeArrayObj.getJSONObject(i).get(activity.getResources().getString(R.string.jsonParsing_name_scadenza))));
+                    currentScadenza.setScadenza(dateFormat.parse((String) scadenzeArrayObj.getJSONObject(i).get(activity.getResources().getString(R.string.jsonParsing_date))));
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }

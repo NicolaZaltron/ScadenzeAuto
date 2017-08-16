@@ -18,7 +18,12 @@ public class Scadenza {
 
     public Scadenza(String kindOfScadenza){
         this.kindOfScadenza = kindOfScadenza;
-        this.dateScadenza = null;
+        this.dateScadenza = new Date();
+    }
+
+    public Scadenza() {
+        this.kindOfScadenza = "";
+        this.dateScadenza = new Date();
     }
 
     public void setName(String kindOfScadenza) {
