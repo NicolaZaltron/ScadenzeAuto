@@ -3,6 +3,7 @@ package tk.nicolazaltron.scadenzeauto;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
@@ -23,7 +24,7 @@ public class VehiclesActivity extends AppCompatActivity {
 
     private static Activity activity;
     private ListView vehicleListView;
-    private static ArrayList<Vehicle> vehicleList;
+    /*private*/ public static ArrayList<Vehicle> vehicleList;
     private static VehicleAdapter vehicleAdapter;
 
     public static int currentEditPosition = 0;
@@ -145,10 +146,12 @@ public class VehiclesActivity extends AppCompatActivity {
         notifyChanges();
     }
 
-    public static void openVehicle(int pos){
-        Intent showScadenzeIntent = new Intent(activity, VehiclesActivity.class);
-        activity.startActivity(showScadenzeIntent);
-    }
+/*    public void openVehicle(int pos){
+        Intent showScadenzeIntent = new Intent(getBaseContext(), ShowScadenze.class);
+        showScadenzeIntent.putExtra("EXTRA_SESSION_ID", (Parcelable) vehicleList.get(pos));
+        startActivity(showScadenzeIntent);
+    }*/
+
     public static void notifyChanges(){
         vehicleAdapter.notifyDataSetChanged();
     }

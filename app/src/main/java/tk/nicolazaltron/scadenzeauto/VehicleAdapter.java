@@ -1,6 +1,8 @@
 package tk.nicolazaltron.scadenzeauto;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Parcelable;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
@@ -10,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import java.io.Serializable;
 import java.util.List;
 
 import Models.Vehicle;
@@ -58,7 +61,10 @@ public class VehicleAdapter extends ArrayAdapter {
         buttonVehicleImage.setOnClickListener(new View.OnClickListener() {
                                             @Override
                                             public void onClick(View v) {
-                                                VehiclesActivity.openVehicle(position);
+                                                /*VehiclesActivity.openVehicle(position);*/
+                                                /*Intent showScadenzeIntent = new Intent(getContext(), ShowScadenze.class);
+                                                showScadenzeIntent.putExtra("EXTRA_SESSION_ID", VehiclesActivity.vehicleList.get(position));
+                                                getContext().startActivity(showScadenzeIntent);*/
                                             }
                                         }
         );
@@ -66,7 +72,7 @@ public class VehicleAdapter extends ArrayAdapter {
         textView_vehicleName.setOnClickListener(new View.OnClickListener() {
                                                   @Override
                                                   public void onClick(View v) {
-                                                      VehiclesActivity.openVehicle(position);
+                                                      /*VehiclesActivity.openVehicle(position);*/
                                                   }
                                               }
         );

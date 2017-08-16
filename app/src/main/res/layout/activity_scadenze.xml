@@ -28,6 +28,6 @@
         android:layout_margin="@dimen/fab_margin"
         android:src="@drawable/ic_add_white_24dp" />
 
-    <include layout="@layout/content_vehicles" />
+    <include layout="@layout/scadenza_content" />
 
 </android.support.design.widget.CoordinatorLayout>

@@ -31,7 +31,7 @@ public class JSON_DBPopulator {
     protected Scadenza currentScadenza;
     protected ArrayList<Scadenza> currentScadenzeArray;
 
-    SimpleDateFormat dateFormat = new SimpleDateFormat("DD/MM/YYYY");
+    public static SimpleDateFormat dateFormat = new SimpleDateFormat("DD/MM/YYYY");
 
     JSONManager reader;
 

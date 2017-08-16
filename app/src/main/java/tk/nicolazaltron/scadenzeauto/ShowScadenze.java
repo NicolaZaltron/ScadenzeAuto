@@ -11,7 +11,9 @@ import android.view.View;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.Date;
 
+import Models.Scadenza;
 import Models.Vehicle;
 
 /**
@@ -20,9 +22,9 @@ import Models.Vehicle;
 
 public class ShowScadenze extends AppCompatActivity {
 
-    private ListView vehicleListView;
-    private static ArrayList<Vehicle> vehicleList;
-    private VehicleAdapter vehicleAdapter;
+    private ListView scadenzeListView;
+    private static ArrayList<Scadenza> scadenzeList;
+    private static ScadenzaAdapter scadenzaAdapter;
     private static int currentEditPosition = 0;
 
     public ShowScadenze() {
@@ -31,15 +33,15 @@ public class ShowScadenze extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_vehicles);
+        setContentView(R.layout.activity_scadenze);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        vehicleListView = (ListView) findViewById(R.id.vehiclesListView);
-        vehicleList = new ArrayList<>();
+        scadenzeListView = (ListView) findViewById(R.id.scadenzeListView);
+        scadenzeList = new ArrayList<>();
 
-        vehicleAdapter = new VehicleAdapter(this, R.layout.vehicle_row,vehicleList);
-        vehicleListView.setAdapter(vehicleAdapter);
+        scadenzaAdapter = new ScadenzaAdapter(this, R.layout.scadenza_row,scadenzeList);
+        scadenzeListView.setAdapter(scadenzaAdapter);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -49,15 +51,17 @@ public class ShowScadenze extends AppCompatActivity {
             }
         });
 
-        vehicleAdapter = new VehicleAdapter(this, R.layout.vehicle_row,vehicleList);
-        vehicleListView.setAdapter(vehicleAdapter);
-/*        vehicleListView.setOnItemLongClickListener(new AdapterView.OnItemClickListener() {
+        scadenzaAdapter = new ScadenzaAdapter(this, R.layout.vehicle_row,scadenzeList);
+        scadenzeListView.setAdapter(scadenzaAdapter);
+
+/*
+        scadenzeListView.setOnItemLongClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1,
                                            int pos, long id) {
                 showEditDialog();
                 currentEditPosition = pos;
-                currentEditName = vehicleList.get(pos).getName();
+                currentEditName = scadenzeList.get(pos).getName();
             }
         });*/
 
@@ -92,21 +96,21 @@ public class ShowScadenze extends AppCompatActivity {
         FragmentManager fm = getSupportFragmentManager();
         VehicleAddDialog addListItemDialog = new VehicleAddDialog();
         addListItemDialog.show(fm, "");
-        vehicleAdapter.notifyDataSetChanged();
+        scadenzaAdapter.notifyDataSetChanged();
     }
 
     private void editAddDialog(){
         FragmentManager fm = getSupportFragmentManager();
         VehicleEditDialog addListItemDialog = new VehicleEditDialog();
         addListItemDialog.show(fm, "");
-        vehicleAdapter.notifyDataSetChanged();
+        scadenzaAdapter.notifyDataSetChanged();
     }
 
-    public static void addVehicle(String name){
-        vehicleList.add(new Vehicle(name));
+    public static void addScadenza(String name, Date date){
+        scadenzaAdapter.add(new Scadenza(name, date));
     }
 
-    public static void editVehicle(String name){
-        vehicleList.get(currentEditPosition).setName(name);
-    }
+/*    public static void editScadenza(String name){
+        scadenzaAdapter.get(currentEditPosition).setName(name);
+    }*/
 }
