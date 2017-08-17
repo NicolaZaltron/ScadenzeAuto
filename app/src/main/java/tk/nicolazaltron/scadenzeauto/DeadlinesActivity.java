@@ -50,7 +50,7 @@ public class DeadlinesActivity extends AppCompatActivity {
             }
         });
 
-        deadlineAdapter = new DeadlineAdapter(this, R.layout.vehicle_row,scadenzeList);
+        deadlineAdapter = new DeadlineAdapter(this, R.layout.scadenza_row,scadenzeList);
         scadenzeListView.setAdapter(deadlineAdapter);
 
 /*
@@ -93,14 +93,14 @@ public class DeadlinesActivity extends AppCompatActivity {
 
     private void showAddDialog(){
         FragmentManager fm = getSupportFragmentManager();
-        VehicleAddDialog addListItemDialog = new VehicleAddDialog();
+        AddScadenzaDialog addListItemDialog = new AddScadenzaDialog();
         addListItemDialog.show(fm, "");
         deadlineAdapter.notifyDataSetChanged();
     }
 
     private void editAddDialog(){
         FragmentManager fm = getSupportFragmentManager();
-        VehicleEditDialog addListItemDialog = new VehicleEditDialog();
+        EditScadenzaDialog addListItemDialog = new EditScadenzaDialog();
         addListItemDialog.show(fm, "");
         deadlineAdapter.notifyDataSetChanged();
     }
@@ -112,4 +112,12 @@ public class DeadlinesActivity extends AppCompatActivity {
 /*    public static void editScadenza(String name){
         deadlineAdapter.get(currentEditPosition).setName(name);
     }*/
+
+    public static void editScadenzaName_confirmed(String name){
+        scadenzeList.get(currentEditPosition).setName(name);
+    }
+
+    public static void editScadenzaDate_confirmed(Date date){
+        scadenzeList.get(currentEditPosition).setScadenza(date);
+    }
 }

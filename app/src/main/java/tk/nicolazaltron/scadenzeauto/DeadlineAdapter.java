@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import Models.Scadenza;
 import Models.Vehicle;
 
 /**
@@ -25,19 +26,18 @@ public class DeadlineAdapter extends ArrayAdapter {
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         // Get the data item for this position
-        Vehicle vehicle = (Vehicle) getItem(position);
+        Scadenza scadenza = (Scadenza) getItem(position);
         // Check if an existing view is being reused, otherwise inflate the view
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.vehicle_row, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.scadenza_row, parent, false);
         }
         // Lookup view for data population
-        TextView textView_vehicleName = (TextView) convertView.findViewById(R.id.textView_vehicleName);
+        TextView textView_scadenzaName = (TextView) convertView.findViewById(R.id.textView_scadenzaName);
         // Populate the data into the template view using the data object
-        textView_vehicleName.setText(vehicle.getName());
+        textView_scadenzaName.setText(scadenza.getName());
 
-        ImageButton buttonDelete = (ImageButton) convertView.findViewById(R.id.button_vehicleDelete);
-        ImageButton buttonEdit = (ImageButton) convertView.findViewById(R.id.button_vehicleEdit);
-        ImageButton buttonVehicleImage = (ImageButton) convertView.findViewById(R.id.button_vehicleImage);
+        ImageButton buttonDelete = (ImageButton) convertView.findViewById(R.id.button_scadenzaDelete);
+        ImageButton buttonEdit = (ImageButton) convertView.findViewById(R.id.button_scadenzaEdit);
 
         buttonEdit.setOnClickListener(new View.OnClickListener() {
                                           @Override
@@ -55,15 +55,7 @@ public class DeadlineAdapter extends ArrayAdapter {
                                         }
         );
 
-/*        buttonVehicleImage.setOnClickListener(new View.OnClickListener() {
-                                                  @Override
-                                                  public void onClick(View v) {
-                                                      VehiclesActivity.openVehicle(position);
-                                                  }
-                                              }
-        );
-
-        textView_vehicleName.setOnClickListener(new View.OnClickListener() {
+/*      textView_vehicleName.setOnClickListener(new View.OnClickListener() {
                                                     @Override
                                                     public void onClick(View v) {
                                                         VehiclesActivity.openVehicle(position);
