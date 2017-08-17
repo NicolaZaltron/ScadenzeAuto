@@ -11,7 +11,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
-import Models.Scadenza;
+import Models.Deadline;
 import Models.Vehicle;
 import tk.nicolazaltron.scadenzeauto.R;
 
@@ -28,8 +28,8 @@ public class JSON_DBPopulator {
     protected Activity activity;
 
     protected Vehicle currentVehicle;
-    protected Scadenza currentScadenza;
-    protected ArrayList<Scadenza> currentScadenzeArray;
+    protected Deadline currentScadenza;
+    protected ArrayList<Deadline> currentScadenzeArray;
 
     public static SimpleDateFormat dateFormat = new SimpleDateFormat("DD/MM/YYYY");
 
@@ -81,11 +81,11 @@ public class JSON_DBPopulator {
                 default: currentVehicle.setIcon(Vehicle.Icon.car);break;
             }
 
-            currentScadenzeArray = new ArrayList<Scadenza>();
+            currentScadenzeArray = new ArrayList<Deadline>();
             JSONArray scadenzeArrayObj = vehiclesArrayObj.getJSONObject(i).getJSONArray(activity.getResources().getString(R.string.jsonParsing_scadenze));
 
             for (int j = 0; j < scadenzeArrayObj.length(); j++) {
-                currentScadenza = new Scadenza();
+                currentScadenza = new Deadline();
                 currentScadenza.setName((String) scadenzeArrayObj.getJSONObject(j).get(activity.getResources().getString(R.string.jsonParsing_name_scadenza)));
                 try {
                     currentScadenza.setScadenza(dateFormat.parse((String) scadenzeArrayObj.getJSONObject(j).get(activity.getResources().getString(R.string.jsonParsing_date))));

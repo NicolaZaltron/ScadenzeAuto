@@ -16,6 +16,8 @@ import android.widget.TextView;
 import java.util.List;
 
 import Models.Vehicle;
+import tk.nicolazaltron.scadenzeauto.Deadlines.DeadlinesActivity;
+import tk.nicolazaltron.scadenzeauto.Vehicles.VehiclesActivity;
 
 /**
  * Created by Nicola Zaltron on 8/15/2017.

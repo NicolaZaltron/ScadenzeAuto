@@ -1,4 +1,4 @@
-package tk.nicolazaltron.scadenzeauto;
+package tk.nicolazaltron.scadenzeauto.Deadlines;
 
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
@@ -14,9 +14,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.ParseException;
-import java.util.Date;
+import java.text.SimpleDateFormat;
 
 import DB.JSON_DBPopulator;
+import tk.nicolazaltron.scadenzeauto.R;
+import tk.nicolazaltron.scadenzeauto.Vehicles.VehiclesActivity;
 
 /**
  * Created by luisazurlo on 15/08/2017.
@@ -32,6 +34,7 @@ public class EditScadenzaDialog extends DialogFragment implements TextView.OnEdi
     private EditText scadenzaDateEditText;
     private Button saveButton;
     private Button cancelButton;
+    public static SimpleDateFormat dateFormat = new SimpleDateFormat("DD/MM/YYYY");
 
     public EditScadenzaDialog() {
         // Empty constructor required for DialogFragment
@@ -45,15 +48,12 @@ public class EditScadenzaDialog extends DialogFragment implements TextView.OnEdi
         scadenzaDateEditText  = (EditText) view.findViewById(R.id.scadenza_date);
 
         // Show soft keyboard automatically
-        scadenzaNameEditText.setText(VehiclesActivity.currentEditName);
+        scadenzaNameEditText.setText(DeadlinesActivity.currentEditName);
         scadenzaNameEditText.requestFocus();
         getDialog().getWindow().setSoftInputMode(
                 WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
 
-        scadenzaDateEditText.setText(VehiclesActivity.currentEditName);
-        scadenzaDateEditText.requestFocus();
-        getDialog().getWindow().setSoftInputMode(
-                WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+        scadenzaDateEditText.setText((DeadlinesActivity.currentEditDate).toString());
 
         saveButton      = (Button) view.findViewById(R.id.save);
         cancelButton    = (Button) view.findViewById(R.id.cancel);

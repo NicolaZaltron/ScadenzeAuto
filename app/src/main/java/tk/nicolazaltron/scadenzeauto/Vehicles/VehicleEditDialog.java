@@ -1,4 +1,4 @@
-package tk.nicolazaltron.scadenzeauto;
+package tk.nicolazaltron.scadenzeauto.Vehicles;
 
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import tk.nicolazaltron.scadenzeauto.R;
 
 /**
  * Created by luisazurlo on 15/08/2017.

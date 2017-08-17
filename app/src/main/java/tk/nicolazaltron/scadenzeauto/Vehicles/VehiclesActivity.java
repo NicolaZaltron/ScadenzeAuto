@@ -1,9 +1,7 @@
-package tk.nicolazaltron.scadenzeauto;
+package tk.nicolazaltron.scadenzeauto.Vehicles;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
@@ -16,9 +14,11 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-import DB.JSONManager;
 import DB.JSON_DBPopulator;
 import Models.Vehicle;
+import tk.nicolazaltron.scadenzeauto.R;
+import tk.nicolazaltron.scadenzeauto.SharedActivities.DeleteDialog;
+import tk.nicolazaltron.scadenzeauto.VehicleAdapter;
 
 public class VehiclesActivity extends AppCompatActivity {
 
@@ -30,6 +30,7 @@ public class VehiclesActivity extends AppCompatActivity {
     public static int currentEditPosition = 0;
     public static int currentDeletePosition = 0;
     public static String currentEditName = "";
+    public static boolean delete_dialog2 = false;
 
     private static FragmentManager fm;
 
@@ -108,7 +109,7 @@ public class VehiclesActivity extends AppCompatActivity {
     }
 
     private void showAddDialog(){
-        VehicleAddDialog addListItemDialog = new VehicleAddDialog();
+        AddVehicleDialog addListItemDialog = new AddVehicleDialog();
         addListItemDialog.show(fm, "");
     }
 
@@ -118,6 +119,7 @@ public class VehiclesActivity extends AppCompatActivity {
     }
 
     public static void showDeleteDialog(){
+        delete_dialog2 = true;
         DeleteDialog deleteItemDialog = new DeleteDialog();
         deleteItemDialog.show(fm, "");
     }
