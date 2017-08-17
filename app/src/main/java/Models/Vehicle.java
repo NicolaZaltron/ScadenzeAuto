@@ -1,10 +1,6 @@
 package Models;
 
-import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
-
-import Models.Scadenza;
 
 /**
  * Created by Nicola Zaltron on 8/14/2017.
@@ -25,7 +21,7 @@ public class Vehicle {
     private String name;
     private Icon icon;
 
-    private ArrayList<Scadenza> scadenze;
+    private ArrayList<Deadline> scadenze;
 
     public Vehicle(){
         this.name = "";
@@ -46,7 +42,7 @@ public class Vehicle {
         this.icon = icon;
     }
 
-    public void setScadenze(ArrayList<Scadenza> scadenze) {
+    public void setScadenze(ArrayList<Deadline> scadenze) {
         this.scadenze = scadenze;
     }
 

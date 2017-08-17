@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".VehiclesActivity"
+            android:name=".Vehicles.VehiclesActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".DeadlinesActivity"
+            android:name=".Deadlines.DeadlinesActivity"
             android:label="@string/activity_scadenze"
             android:theme="@style/AppTheme.NoActionBar"
             android:launchMode="singleInstance">

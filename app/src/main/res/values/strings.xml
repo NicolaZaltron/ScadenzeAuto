@@ -26,11 +26,14 @@
     <string name="name_hint">Es. Golf serie 7</string>
     <string name="save">Conferma</string>
     <string name="cancel">Annulla</string>
-    <string name="insert_error">Inserisci un veicolo</string>
+    <string name="insert_error">Inserisci un elemento</string>
     <string name="confirm">Sei sicuro di voler eliminare l\'elemento?</string>
+    <string name="add_scadenza_details">Aggiungi nuova scadenza</string>
+    <string name="action_scadenza_add">Aggiungi nuova scadenza</string>
     <string name="edit_scadenza_details">Modifica dettagli scadenza</string>
     <string name="type_hint">Revisione</string>
     <string name="date_hint">20/10/2022</string>
+
 <!--    <string name=""></string>
 
     <string name=""></string>

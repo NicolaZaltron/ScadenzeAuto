@@ -6,22 +6,22 @@ import java.util.Date;
  * Created by luisazurlo on 15/08/2017.
  */
 
-public class Scadenza {
+public class Deadline {
     private String kindOfScadenza;
     private Date dateScadenza;
 
 
-    public Scadenza(String kindOfScadenza, Date dateScadenza) {
+    public Deadline(String kindOfScadenza, Date dateScadenza) {
         this.kindOfScadenza = kindOfScadenza;
         this.dateScadenza = dateScadenza;
     }
 
-    public Scadenza(String kindOfScadenza){
+    public Deadline(String kindOfScadenza){
         this.kindOfScadenza = kindOfScadenza;
         this.dateScadenza = new Date();
     }
 
-    public Scadenza() {
+    public Deadline() {
         this.kindOfScadenza = "";
         this.dateScadenza = new Date();
     }

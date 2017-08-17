@@ -1,4 +1,4 @@
-package tk.nicolazaltron.scadenzeauto;
+package tk.nicolazaltron.scadenzeauto.Deadlines;
 
 import android.content.Context;
 import android.support.annotation.LayoutRes;
@@ -12,8 +12,8 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import Models.Scadenza;
-import Models.Vehicle;
+import Models.Deadline;
+import tk.nicolazaltron.scadenzeauto.R;
 
 /**
  * Created by luisazurlo on 17/08/2017.
@@ -26,15 +26,17 @@ public class DeadlineAdapter extends ArrayAdapter {
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         // Get the data item for this position
-        Scadenza scadenza = (Scadenza) getItem(position);
+        Deadline scadenza = (Deadline) getItem(position);
         // Check if an existing view is being reused, otherwise inflate the view
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.scadenza_row, parent, false);
         }
         // Lookup view for data population
         TextView textView_scadenzaName = (TextView) convertView.findViewById(R.id.textView_scadenzaName);
+        TextView textView_scadenzaDate = (TextView) convertView.findViewById(R.id.textView_scadenzaDate);
         // Populate the data into the template view using the data object
         textView_scadenzaName.setText(scadenza.getName());
+        textView_scadenzaDate.setText(scadenza.getDateScadenza().toString());
 
         ImageButton buttonDelete = (ImageButton) convertView.findViewById(R.id.button_scadenzaDelete);
         ImageButton buttonEdit = (ImageButton) convertView.findViewById(R.id.button_scadenzaEdit);
@@ -42,7 +44,7 @@ public class DeadlineAdapter extends ArrayAdapter {
         buttonEdit.setOnClickListener(new View.OnClickListener() {
                                           @Override
                                           public void onClick(View v) {
-                                              VehiclesActivity.editVehicle(position);
+                                              DeadlinesActivity.editScadenza(position);
                                           }
                                       }
         );
@@ -50,7 +52,7 @@ public class DeadlineAdapter extends ArrayAdapter {
         buttonDelete.setOnClickListener(new View.OnClickListener() {
                                             @Override
                                             public void onClick(View v) {
-                                                VehiclesActivity.deleteVehicle(position);
+                                                DeadlinesActivity.deleteDeadline(position);
                                             }
                                         }
         );
