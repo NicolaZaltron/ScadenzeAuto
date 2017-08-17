@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import Models.Scadenza;
+import Models.Vehicle;
 
 /**
  * Created by luisazurlo on 15/08/2017.
@@ -24,6 +25,9 @@ public class DeadlinesActivity extends AppCompatActivity {
     private ListView scadenzeListView;
     private static ArrayList<Scadenza> scadenzeList;
     private static DeadlineAdapter deadlineAdapter;
+
+    private static int vehiclePosition;
+    private static Vehicle vehicle;
     private static int currentEditPosition = 0;
 
     public DeadlinesActivity() {
@@ -36,8 +40,11 @@ public class DeadlinesActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        vehiclePosition = this.getIntent().getIntExtra("position", -1);
+        vehicle = VehiclesActivity.vehicleList.get(vehiclePosition);
+
         scadenzeListView = (ListView) findViewById(R.id.scadenzeListView);
-        scadenzeList = new ArrayList<>();
+        scadenzeList = vehicle.getScadenze();
 
         deadlineAdapter = new DeadlineAdapter(this, R.layout.scadenza_row,scadenzeList);
         scadenzeListView.setAdapter(deadlineAdapter);

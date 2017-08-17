@@ -69,7 +69,7 @@ public class VehicleAdapter extends ArrayAdapter {
                                                 //bundle.putSerializable("vehicle", vehicle);
 
                                                 //showScadenzeIntent.putExtras(bundle);
-                                                //showScadenzeIntent.putExtra("EXTRA_SESSION_ID", VehiclesActivity.vehicleList.get(position));
+                                                showScadenzeIntent.putExtra("position", position);
                                                 getContext().startActivity(showScadenzeIntent);
                                             }
                                         }
