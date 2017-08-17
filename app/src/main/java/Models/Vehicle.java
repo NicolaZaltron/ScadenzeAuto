@@ -10,7 +10,7 @@ import Models.Scadenza;
  * Created by Nicola Zaltron on 8/14/2017.
  */
 
-public class Vehicle implements Serializable {
+public class Vehicle {
     public enum Icon{
         car,
         pickup,
