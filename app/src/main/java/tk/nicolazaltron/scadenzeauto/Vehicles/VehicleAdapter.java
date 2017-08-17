@@ -1,4 +1,4 @@
-package tk.nicolazaltron.scadenzeauto;
+package tk.nicolazaltron.scadenzeauto.Vehicles;
 
 import android.content.Context;
 import android.content.Intent;
@@ -17,7 +17,8 @@ import java.util.List;
 
 import Models.Vehicle;
 import tk.nicolazaltron.scadenzeauto.Deadlines.DeadlinesActivity;
-import tk.nicolazaltron.scadenzeauto.Vehicles.VehiclesActivity;
+import tk.nicolazaltron.scadenzeauto.R;
+
 
 /**
  * Created by Nicola Zaltron on 8/15/2017.

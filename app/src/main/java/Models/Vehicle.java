@@ -20,18 +20,18 @@ public class Vehicle {
     }
     private String name;
     private Icon icon;
-
     private ArrayList<Deadline> scadenze;
 
     public Vehicle(){
         this.name = "";
         this.icon = Icon.car;
+        this.scadenze = new ArrayList<>();
     }
 
     public Vehicle(String name){
         this.name = name;
         this.icon = Icon.car;
-        this.scadenze = null;
+        this.scadenze = new ArrayList<>();
     }
 
     public void setName(String name) {

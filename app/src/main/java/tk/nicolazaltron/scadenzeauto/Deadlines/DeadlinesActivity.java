@@ -16,10 +16,7 @@ import java.util.Date;
 
 import Models.Deadline;
 import Models.Vehicle;
-import tk.nicolazaltron.scadenzeauto.Deadlines.DeadlineAdapter;
-import tk.nicolazaltron.scadenzeauto.Deadlines.AddScadenzaDialog;
 import tk.nicolazaltron.scadenzeauto.SharedActivities.DeleteDialog;
-import tk.nicolazaltron.scadenzeauto.Deadlines.EditScadenzaDialog;
 import tk.nicolazaltron.scadenzeauto.R;
 import tk.nicolazaltron.scadenzeauto.Vehicles.VehiclesActivity;
 
@@ -172,6 +169,10 @@ public class DeadlinesActivity extends AppCompatActivity {
 
     public static void deleteDeadline_confirmed(){
         scadenzeList.remove(currentEditPosition);
+        notifyChanges();
+    }
+
+    public static void notifyChanges(){
         deadlineAdapter.notifyDataSetChanged();
     }
 }

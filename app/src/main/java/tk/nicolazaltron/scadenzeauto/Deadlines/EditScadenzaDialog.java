@@ -73,7 +73,7 @@ public class EditScadenzaDialog extends DialogFragment implements TextView.OnEdi
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }
-                    VehiclesActivity.notifyChanges();
+                    DeadlinesActivity.notifyChanges();
                     getDialog().dismiss();
                 }
             }

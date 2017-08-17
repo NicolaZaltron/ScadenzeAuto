@@ -18,7 +18,6 @@ import DB.JSON_DBPopulator;
 import Models.Vehicle;
 import tk.nicolazaltron.scadenzeauto.R;
 import tk.nicolazaltron.scadenzeauto.SharedActivities.DeleteDialog;
-import tk.nicolazaltron.scadenzeauto.VehicleAdapter;
 
 public class VehiclesActivity extends AppCompatActivity {
 
