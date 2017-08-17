@@ -46,7 +46,7 @@ public class VehicleAdapter extends ArrayAdapter {
         buttonEdit.setOnClickListener(new View.OnClickListener() {
                                           @Override
                                           public void onClick(View v) {
-                                                     VehiclesActivity.editVehicle(position);
+                                              VehiclesActivity.editVehicle(position);
                                           }
                                       }
         );
@@ -62,15 +62,7 @@ public class VehicleAdapter extends ArrayAdapter {
         buttonVehicleImage.setOnClickListener(new View.OnClickListener() {
                                             @Override
                                             public void onClick(View v) {
-                                                /*VehiclesActivity.openVehicle(position);*/
-                                                Intent showScadenzeIntent = new Intent(getContext(), DeadlinesActivity.class);
-
-                                                //Bundle bundle = new Bundle();
-                                                //bundle.putSerializable("vehicle", vehicle);
-
-                                                //showScadenzeIntent.putExtras(bundle);
-                                                showScadenzeIntent.putExtra("position", position);
-                                                getContext().startActivity(showScadenzeIntent);
+                                                openDeadline(position);
                                             }
                                         }
         );
@@ -78,7 +70,7 @@ public class VehicleAdapter extends ArrayAdapter {
         textView_vehicleName.setOnClickListener(new View.OnClickListener() {
                                                   @Override
                                                   public void onClick(View v) {
-                                                      /*VehiclesActivity.openVehicle(position);*/
+                                                      openDeadline(position);
                                                   }
                                               }
         );
@@ -98,5 +90,11 @@ public class VehicleAdapter extends ArrayAdapter {
         
         // Return the completed view to render on screen
         return convertView;
+    }
+
+    private void openDeadline(int position){
+        Intent deadlineIntent = new Intent(getContext(), DeadlinesActivity.class);
+        deadlineIntent.putExtra("position", position);
+        getContext().startActivity(deadlineIntent);
     }
 }
