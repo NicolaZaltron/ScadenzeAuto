@@ -10,7 +10,6 @@ import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -72,7 +71,7 @@ public class AddScadenzaDialog extends DialogFragment implements TextView.OnEdit
                 if(temp_scadenza_name.equals("")||temp_scadenza_date.equals("")){
                     Toast.makeText(getActivity(), R.string.insert_error , Toast.LENGTH_SHORT).show();
                 } else {
-                    ShowScadenze.addScadenza(temp_scadenza_name, temp_scadenza_date);
+                    DeadlinesActivity.addScadenza(temp_scadenza_name, temp_scadenza_date);
                     //VehiclesActivity.addVehicle(temp_vehicle);
                     getDialog().dismiss();
                 }

@@ -1,5 +1,6 @@
 package Models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -9,7 +10,7 @@ import Models.Scadenza;
  * Created by Nicola Zaltron on 8/14/2017.
  */
 
-public class Vehicle {
+public class Vehicle implements Serializable {
     public enum Icon{
         car,
         pickup,

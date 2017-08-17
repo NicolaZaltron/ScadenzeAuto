@@ -14,20 +14,19 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import Models.Scadenza;
-import Models.Vehicle;
 
 /**
  * Created by luisazurlo on 15/08/2017.
  */
 
-public class ShowScadenze extends AppCompatActivity {
+public class DeadlinesActivity extends AppCompatActivity {
 
     private ListView scadenzeListView;
     private static ArrayList<Scadenza> scadenzeList;
-    private static ScadenzaAdapter scadenzaAdapter;
+    private static DeadlineAdapter deadlineAdapter;
     private static int currentEditPosition = 0;
 
-    public ShowScadenze() {
+    public DeadlinesActivity() {
     }
 
     @Override
@@ -40,8 +39,8 @@ public class ShowScadenze extends AppCompatActivity {
         scadenzeListView = (ListView) findViewById(R.id.scadenzeListView);
         scadenzeList = new ArrayList<>();
 
-        scadenzaAdapter = new ScadenzaAdapter(this, R.layout.scadenza_row,scadenzeList);
-        scadenzeListView.setAdapter(scadenzaAdapter);
+        deadlineAdapter = new DeadlineAdapter(this, R.layout.scadenza_row,scadenzeList);
+        scadenzeListView.setAdapter(deadlineAdapter);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -51,8 +50,8 @@ public class ShowScadenze extends AppCompatActivity {
             }
         });
 
-        scadenzaAdapter = new ScadenzaAdapter(this, R.layout.vehicle_row,scadenzeList);
-        scadenzeListView.setAdapter(scadenzaAdapter);
+        deadlineAdapter = new DeadlineAdapter(this, R.layout.vehicle_row,scadenzeList);
+        scadenzeListView.setAdapter(deadlineAdapter);
 
 /*
         scadenzeListView.setOnItemLongClickListener(new AdapterView.OnItemClickListener() {
@@ -96,21 +95,21 @@ public class ShowScadenze extends AppCompatActivity {
         FragmentManager fm = getSupportFragmentManager();
         VehicleAddDialog addListItemDialog = new VehicleAddDialog();
         addListItemDialog.show(fm, "");
-        scadenzaAdapter.notifyDataSetChanged();
+        deadlineAdapter.notifyDataSetChanged();
     }
 
     private void editAddDialog(){
         FragmentManager fm = getSupportFragmentManager();
         VehicleEditDialog addListItemDialog = new VehicleEditDialog();
         addListItemDialog.show(fm, "");
-        scadenzaAdapter.notifyDataSetChanged();
+        deadlineAdapter.notifyDataSetChanged();
     }
 
     public static void addScadenza(String name, Date date){
-        scadenzaAdapter.add(new Scadenza(name, date));
+        deadlineAdapter.add(new Scadenza(name, date));
     }
 
 /*    public static void editScadenza(String name){
-        scadenzaAdapter.get(currentEditPosition).setName(name);
+        deadlineAdapter.get(currentEditPosition).setName(name);
     }*/
 }

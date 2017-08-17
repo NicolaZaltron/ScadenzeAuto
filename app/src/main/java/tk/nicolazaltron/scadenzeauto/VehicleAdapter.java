@@ -1,12 +1,8 @@
 package tk.nicolazaltron.scadenzeauto;
 
 import android.content.Context;
-<<<<<<< HEAD
 import android.content.Intent;
-import android.os.Parcelable;
-=======
 import android.os.Build;
->>>>>>> master
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
@@ -17,7 +13,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import java.io.Serializable;
 import java.util.List;
 
 import Models.Vehicle;
@@ -34,7 +29,7 @@ public class VehicleAdapter extends ArrayAdapter {
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         // Get the data item for this position
-        Vehicle vehicle = (Vehicle) getItem(position);
+        final Vehicle vehicle = (Vehicle) getItem(position);
         // Check if an existing view is being reused, otherwise inflate the view
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.vehicle_row, parent, false);
@@ -68,9 +63,14 @@ public class VehicleAdapter extends ArrayAdapter {
                                             @Override
                                             public void onClick(View v) {
                                                 /*VehiclesActivity.openVehicle(position);*/
-                                                /*Intent showScadenzeIntent = new Intent(getContext(), ShowScadenze.class);
-                                                showScadenzeIntent.putExtra("EXTRA_SESSION_ID", VehiclesActivity.vehicleList.get(position));
-                                                getContext().startActivity(showScadenzeIntent);*/
+                                                Intent showScadenzeIntent = new Intent(getContext(), DeadlinesActivity.class);
+
+                                                //Bundle bundle = new Bundle();
+                                                //bundle.putSerializable("vehicle", vehicle);
+
+                                                //showScadenzeIntent.putExtras(bundle);
+                                                //showScadenzeIntent.putExtra("EXTRA_SESSION_ID", VehiclesActivity.vehicleList.get(position));
+                                                getContext().startActivity(showScadenzeIntent);
                                             }
                                         }
         );

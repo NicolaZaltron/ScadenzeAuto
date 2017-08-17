@@ -147,7 +147,7 @@ public class VehiclesActivity extends AppCompatActivity {
     }
 
 /*    public void openVehicle(int pos){
-        Intent showScadenzeIntent = new Intent(getBaseContext(), ShowScadenze.class);
+        Intent showScadenzeIntent = new Intent(getBaseContext(), DeadlinesActivity.class);
         showScadenzeIntent.putExtra("EXTRA_SESSION_ID", (Parcelable) vehicleList.get(pos));
         startActivity(showScadenzeIntent);
     }*/

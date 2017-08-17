@@ -63,7 +63,6 @@ public class JSON_DBPopulator {
 
         JSONArray vehiclesArrayObj = jsonObject.getJSONArray(activity.getResources().getString(R.string.jsonParsing_vehicle));
 
-        System.out.println("JSON        ---       " + vehiclesArrayObj.length() + " vehicles found!!");
         for (int i = 0; i < vehiclesArrayObj.length(); i++) {
 
             currentVehicle = null;
@@ -84,6 +83,7 @@ public class JSON_DBPopulator {
 
             currentScadenzeArray = new ArrayList<Scadenza>();
             JSONArray scadenzeArrayObj = vehiclesArrayObj.getJSONObject(i).getJSONArray(activity.getResources().getString(R.string.jsonParsing_scadenze));
+
             for (int j = 0; j < scadenzeArrayObj.length(); j++) {
                 currentScadenza = new Scadenza();
                 currentScadenza.setName((String) scadenzeArrayObj.getJSONObject(j).get(activity.getResources().getString(R.string.jsonParsing_name_scadenza)));

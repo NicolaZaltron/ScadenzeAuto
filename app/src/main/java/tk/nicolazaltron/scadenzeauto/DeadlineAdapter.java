@@ -18,8 +18,8 @@ import Models.Vehicle;
  * Created by luisazurlo on 17/08/2017.
  */
 
-public class ScadenzaAdapter extends ArrayAdapter {
-    public ScadenzaAdapter(@NonNull Context context, @LayoutRes int resource, List vehicles) {
+public class DeadlineAdapter extends ArrayAdapter {
+    public DeadlineAdapter(@NonNull Context context, @LayoutRes int resource, List vehicles) {
         super(context, resource, vehicles);
     }
     @Override
