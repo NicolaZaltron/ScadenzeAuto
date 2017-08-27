@@ -8,11 +8,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import Models.Vehicle;
 import tk.nicolazaltron.scadenzeauto.R;
 
 /**
@@ -26,8 +29,11 @@ public class VehicleEditDialog extends DialogFragment implements TextView.OnEdit
     }
 
     private EditText vehicleNameEditText;
+    private Spinner vehicleSpinner;
     private Button saveButton;
     private Button cancelButton;
+
+    static int spinnerPosition = 0;
 
     public VehicleEditDialog() {
         // Empty constructor required for DialogFragment
@@ -38,6 +44,9 @@ public class VehicleEditDialog extends DialogFragment implements TextView.OnEdit
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.edit_vehicle_fragment, container);
         vehicleNameEditText  = (EditText) view.findViewById(R.id.vehicle_name);
+        vehicleSpinner          = (Spinner) view.findViewById(R.id.spinner);
+        saveButton      = (Button) view.findViewById(R.id.save);
+        cancelButton    = (Button) view.findViewById(R.id.cancel);
 
         // Show soft keyboard automatically
         vehicleNameEditText.setText(VehiclesActivity.currentEditName);
@@ -45,8 +54,19 @@ public class VehicleEditDialog extends DialogFragment implements TextView.OnEdit
         getDialog().getWindow().setSoftInputMode(
                 WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
 
-        saveButton      = (Button) view.findViewById(R.id.save);
-        cancelButton    = (Button) view.findViewById(R.id.cancel);
+
+        vehicleSpinner.setAdapter(new VehicleSpinnerAdapter());
+        vehicleSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                spinnerPosition = position;
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,7 +76,20 @@ public class VehicleEditDialog extends DialogFragment implements TextView.OnEdit
                 if(temp_vehicle.equals("")){
                     Toast.makeText(getActivity(), R.string.insert_error , Toast.LENGTH_SHORT).show();
                 } else {
-                    VehiclesActivity.editVehicleName_confirmed(temp_vehicle);
+                    Vehicle.Icon icon;
+                    switch (spinnerPosition){
+                        case 0: icon= Vehicle.Icon.car; break;
+                        case 1: icon= Vehicle.Icon.scooter; break;
+                        case 2: icon= Vehicle.Icon.motorbike; break;
+                        case 3: icon= Vehicle.Icon.van; break;
+                        case 4: icon= Vehicle.Icon.pickup; break;
+                        case 5: icon= Vehicle.Icon.ape; break;
+                        case 6: icon= Vehicle.Icon.troc; break;
+                        case 7: icon= Vehicle.Icon.bike; break;
+                        case 8: icon= Vehicle.Icon.boat; break;
+                        default: icon= Vehicle.Icon.car; break;
+                    }
+                    VehiclesActivity.editVehicleName_confirmed(temp_vehicle, icon);
                     VehiclesActivity.notifyChanges();
                     getDialog().dismiss();
                 }

@@ -138,8 +138,9 @@ public class VehiclesActivity extends AppCompatActivity {
         showDeleteDialog();
     }
 
-    public static void editVehicleName_confirmed(String name){
+    public static void editVehicleName_confirmed(String name, Vehicle.Icon icon){
         vehicleList.get(currentEditPosition).setName(name);
+        vehicleList.get(currentEditPosition).setIcon(icon);
     }
 
     public static void deleteVehicle_confirmed(){
