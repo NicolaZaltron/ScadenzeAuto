@@ -123,8 +123,8 @@ public class VehiclesActivity extends AppCompatActivity {
         deleteItemDialog.show(fm, "");
     }
 
-    public static void addVehicle(String name){
-        vehicleList.add(new Vehicle(name));
+    public static void addVehicle(String name, Vehicle.Icon icon){
+        vehicleList.add(new Vehicle(name, icon));
     }
 
     public static void editVehicle(int pos){

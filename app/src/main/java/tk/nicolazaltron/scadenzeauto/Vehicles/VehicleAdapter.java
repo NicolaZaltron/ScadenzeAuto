@@ -80,6 +80,7 @@ public class VehicleAdapter extends ArrayAdapter {
 
         switch (vehicle.getIcon()){
             case car: buttonVehicleImage.setImageResource(R.drawable.car);break;
+            case scooter: buttonVehicleImage.setImageResource(R.drawable.scooter);break;
             case bike: buttonVehicleImage.setImageResource(R.drawable.bike);break;
             case motorbike: buttonVehicleImage.setImageResource(R.drawable.motorbike);break;
             case van: buttonVehicleImage.setImageResource(R.drawable.van);break;

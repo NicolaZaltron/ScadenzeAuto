@@ -7,6 +7,7 @@ import java.util.ArrayList;
  */
 
 public class Vehicle {
+
     public enum Icon{
         car,
         pickup,
@@ -31,6 +32,12 @@ public class Vehicle {
     public Vehicle(String name){
         this.name = name;
         this.icon = Icon.car;
+        this.scadenze = new ArrayList<>();
+    }
+
+    public Vehicle(String name, Icon icon) {
+        this.name = name;
+        this.icon = icon;
         this.scadenze = new ArrayList<>();
     }
 

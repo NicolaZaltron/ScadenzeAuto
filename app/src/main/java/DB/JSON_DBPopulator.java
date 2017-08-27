@@ -77,6 +77,7 @@ public class JSON_DBPopulator {
                 case "pickup": currentVehicle.setIcon(Vehicle.Icon.pickup);break;
                 case "ape": currentVehicle.setIcon(Vehicle.Icon.ape);break;
                 case "troc": currentVehicle.setIcon(Vehicle.Icon.troc);break;
+                case "scooter": currentVehicle.setIcon(Vehicle.Icon.scooter);break;
                 case "boat": currentVehicle.setIcon(Vehicle.Icon.boat);break;
                 default: currentVehicle.setIcon(Vehicle.Icon.car);break;
             }
